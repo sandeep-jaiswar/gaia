@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "jsx":"react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "module": "NodeNext",
+  },
+  "include": [ "."],
+  "exclude": ["node_modules","dist"]
+}
