@@ -1,12 +1,21 @@
-import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
 
 export async function register() {
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
-    await import('./sentry.server.config');
+  const runtime = process.env.NEXT_RUNTIME;
+  if (!runtime) {
+    console.warn("NEXT_RUNTIME environment variable is not set");
+    return;
   }
+  try {
+    if (runtime === "nodejs") {
+      await import("./sentry.server.config");
+    }
 
-  if (process.env.NEXT_RUNTIME === 'edge') {
-    await import('./sentry.edge.config');
+    if (runtime === "edge") {
+      await import("./sentry.edge.config");
+    }
+  } catch (error) {
+    console.error("Failed to initialize Sentry:", error);
   }
 }
 
