@@ -1,6 +1,7 @@
 import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig = {
+  transpilePackages: ['lucide-react'],
   swcMinify: true,
   experimental: {
     swcLoader: true,
