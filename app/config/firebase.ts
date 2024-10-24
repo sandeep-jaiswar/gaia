@@ -11,7 +11,7 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-const firebase_app =
-  getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+const firebaseApp =
+  !getApps().length ? initializeApp(firebaseConfig) : getApps()[0];
 
-export default firebase_app;
+export default firebaseApp;

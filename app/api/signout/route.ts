@@ -1,19 +1,9 @@
 import firebase_app from "@gaia/app/config/firebase";
 import {
-  createUserWithEmailAndPassword,
   getAuth,
-  UserCredential,
 } from "firebase/auth";
 import { NextResponse, NextRequest } from "next/server";
 import rateLimit from "express-rate-limit";
-import { z } from "zod";
-
-const SignInSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-});
-
-type SignInRequestBody = z.infer<typeof SignInSchema>;
 
 const auth = getAuth(firebase_app);
 
@@ -27,16 +17,9 @@ const limiter = rateLimit({
 export async function POST(request: NextRequest) {
   try {
     await limiter(request);
-    const body = await request.json();
-    const { email, password }: SignInRequestBody = SignInSchema.parse(body);
-    const userCredential: UserCredential = await createUserWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
+    const data = await auth.signOut();
     return NextResponse.json(
-      { success: true, user: userCredential.user },
+      { success: true, data },
       {
         status: 200,
       }
