@@ -1,11 +1,9 @@
-import firebase_app from "@gaia/app/config/firebase";
-import {
-  getAuth,
-} from "firebase/auth";
+import firebaseApp from "@gaia/config/firebase";
+import { getAuth } from "firebase/auth";
 import { NextResponse, NextRequest } from "next/server";
 import rateLimit from "express-rate-limit";
 
-const auth = getAuth(firebase_app);
+const auth = getAuth(firebaseApp);
 
 export const dynamic = "force-dynamic";
 

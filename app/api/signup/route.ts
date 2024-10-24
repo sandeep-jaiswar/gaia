@@ -1,4 +1,4 @@
-import firebase_app from "@gaia/app/config/firebase";
+import firebaseApp from "@gaia/config/firebase";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -15,7 +15,7 @@ const SignInSchema = z.object({
 
 type SignInRequestBody = z.infer<typeof SignInSchema>;
 
-const auth = getAuth(firebase_app);
+const auth = getAuth(firebaseApp);
 
 export const dynamic = "force-dynamic";
 
