@@ -11,8 +11,10 @@
   "dependencies": {
     "@mui/base": "^5.0.0-beta.60",
     "@sentry/nextjs": "8.35.0",
+    "clsx": "^2.1.1",
     "express-rate-limit": "7.4.1",
     "firebase": "11.0.1",
+    "lucide-react": "^0.453.0",
     "next": "15.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

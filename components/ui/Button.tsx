@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from "react";
 import { Button as MuiButton } from "@mui/base/Button";
 import clsx from "clsx";
-import Spinner from "@gaia/components/ui/Spinner";
+import Spinner from "@gaia/components/feedback/Spinner";
 
 export type ButtonType = {
   children: ReactNode;
