@@ -1,4 +1,4 @@
-import firebase_app from "@gaia/app/config/firebase";
+import firebaseApp from "@gaia/config/firebase";
 import {
   signInWithEmailAndPassword,
   getAuth,
@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import { NextResponse, NextRequest } from "next/server";
 
-const auth = getAuth(firebase_app);
+const auth = getAuth(firebaseApp);
 
 export const dynamic = "force-static";
 
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
   } catch (error: unknown) {
     if (error instanceof Error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
-      }
-      throw new Error(error as string);
+    }
+    throw new Error(error as string);
   }
 }
