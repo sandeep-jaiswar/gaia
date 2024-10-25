@@ -1,20 +1,16 @@
 import { withSentryConfig } from "@sentry/nextjs";
+import type { NextConfig } from "next";
 
-const nextConfig = {
-  transpilePackages: ['lucide-react'],
-  swcMinify: true,
+const nextConfig: NextConfig = {
+  transpilePackages: ["lucide-react"],
   experimental: {
-    swcLoader: true,
-    swcThreads: true,
-    modern: true,
-    topLevelAwait: true,
     esmExternals: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
     reactRemoveProperties: true,
-    reactStrictMode: true,
   },
+  reactStrictMode: true,
   output: "standalone",
 };
 
